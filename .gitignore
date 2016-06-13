@@ -33,7 +33,6 @@ bin
 
 # Since torus can be used as a package, don't commit the vendor directory.
 # For background see: https://groups.google.com/forum/#!topic/golang-dev/4FfTBfN2YaI
-vendor
 
 # local-cluster information
 /local-cluster
