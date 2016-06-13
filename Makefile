@@ -5,7 +5,7 @@ GOOS=$(shell go env GOOS)
 GOARCH=$(shell go env GOARCH)
 REPOPATH = github.com/coreos/torus
 
-build: vendor
+build: 
 	go build -o bin/torusd -ldflags "-X $(REPOPATH).Version=$(VERSION)" ./cmd/torusd
 	go build -o bin/torusctl -ldflags "-X $(REPOPATH).Version=$(VERSION)" ./cmd/torusctl
 	go build -o bin/torusblk -ldflags "-X $(REPOPATH).Version=$(VERSION)" ./cmd/torusblk
