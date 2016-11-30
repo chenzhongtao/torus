@@ -55,9 +55,9 @@ type DebugMetadataService interface {
 }
 
 type GlobalMetadata struct {
-	BlockSize        uint64
-	DefaultBlockSpec BlockLayerSpec
-	INodeReplication int
+	BlockSize        uint64         //#512kb
+	DefaultBlockSpec BlockLayerSpec //#crc
+	INodeReplication int            //#3
 }
 
 // CreateMetadataServiceFunc is the signature of a constructor used to create
@@ -113,7 +113,7 @@ func RegisterMetadataInit(name string, newFunc InitMDSFunc) {
 	initMDSFuncs[name] = newFunc
 }
 
-// InitMDS calls the specific init function provided by a metadata package.
+// InitMDS calls the specific init function provided by a metadata package. //# ringType Ketama
 func InitMDS(name string, cfg Config, gmd GlobalMetadata, ringType RingType) error {
 	clog.Debugf("running InitMDS for service type: %s", name)
 	return initMDSFuncs[name](cfg, gmd, ringType)

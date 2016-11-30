@@ -63,6 +63,7 @@ func initAction(cmd *cobra.Command, args []string) {
 	if noMakeRing {
 		ringType = ring.Empty
 	}
+	// 初始化元数据
 	err = torus.InitMDS("etcd", cfg, md, ringType)
 	if err != nil {
 		die("error writing metadata: %v", err)
